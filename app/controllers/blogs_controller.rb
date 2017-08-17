@@ -16,7 +16,7 @@ class BlogsController < ApplicationController
   def create
     # Blog.create(blogs_params)
     # @blog = Blog.create(blogs_params)ではだめなのか？？
-    @blog = Blog.new(blogs_params)
+    @blog = Blog.new(blogs_params) #バリデーションが失敗して、render 'new'が実行された場合に変数を渡すことができるようにするためにインスタンス変数に代入している
     if @blog.save
       redirect_to blogs_path, notice: "ブログを作成しました！"
     else
