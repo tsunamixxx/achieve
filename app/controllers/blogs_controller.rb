@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_blog, only: [:edit, :update, :destroy]
   
   def index
@@ -17,6 +18,7 @@ class BlogsController < ApplicationController
     # Blog.create(blogs_params)
     # @blog = Blog.create(blogs_params)ではだめなのか？？
     @blog = Blog.new(blogs_params) #バリデーションが失敗して、render 'new'が実行された場合に変数を渡すことができるようにするためにインスタンス変数に代入している
+    @blog.user_id = current_user.id
     if @blog.save
       redirect_to blogs_path, notice: "ブログを作成しました！"
     else
