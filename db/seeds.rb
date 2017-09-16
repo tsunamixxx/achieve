@@ -11,5 +11,16 @@
   User.create!(email: email,
                password: password,
                password_confirmation: password,
+               name: Faker::Name.name
                )
+end
+
+n = 1
+while n <= 100
+  Blog.create(
+    title: "あああ",
+    content: "hoge",
+    user_id: n
+  )
+  n = n + 1
 end
