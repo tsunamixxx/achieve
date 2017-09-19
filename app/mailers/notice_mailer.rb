@@ -15,5 +15,6 @@ class NoticeMailer < ApplicationMailer
     @contact = contact
 
     mail to: @contact.email,
-    subject: 'お問合わせがありました！'
+    subject: 'お問合わせが完了しました！'
+ end
 end
