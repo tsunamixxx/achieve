@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = {host:'shrouded-ridge-83233.herokuapp.com'}
+  config.action_mailer.default_url_options = {host:'safe-reef-44143.herokuapp.com'}
   Action_mailer::Base.delivery_method = :smtp
   Action_mailer::Base.smtp_settings =
   {
