@@ -6,6 +6,7 @@
         <%= link_to "ブログを作成する", new_blog_path, class: 'btn btn-default' %>
         <% @blogs.each do |blog| %>
         <div class="row">
+            <%= profile_img(blog.user) %>
             <p>作者名：<%= blog.user.name if blog.user %></p>
             <p>タイトル：<%= blog.title %></p>
             <p>本文：<%= blog.content %></p>
