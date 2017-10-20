@@ -8,7 +8,9 @@
         <div class="row">
             <%= profile_img(blog.user) %>
             <p>作者名：<%= blog.user.name if blog.user %></p>
-            <p>タイトル：<%= blog.title %></p>
+            <%= link_to blog_path(blog) do %>
+              <p>タイトル：<%= blog.title %></p>
+            <% end %>
             <p>本文：<%= blog.content %></p>
             <%= link_to "編集", edit_blog_path(blog.id), class: 'btn btn-default btn-sm btn-success' %>
             <%= link_to "削除", blog_path(blog.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>

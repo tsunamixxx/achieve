@@ -3,7 +3,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
-  has_many :blogs
+  has_many :blogs, dependent: :destroy
+
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
 
@@ -56,5 +59,5 @@ class User < ActiveRecord::Base
       update_without_password(params, *options)
     end
   end
-  
+
 end
