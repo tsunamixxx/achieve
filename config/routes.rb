@@ -23,7 +23,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :poems, only:[:index, :show]
+  resources :poems, only: [:index, :show]
+
+  resources :users, only: [:index, :show] # dive16で:showを追記
+
+  resources :relationships, only: [:create, :destroy]
 
   root 'top#index'
 

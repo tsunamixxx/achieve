@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
         # JS形式でレスポンスを返します。
         format.js { render :index }
       else
-        format.html {render :new}
+        format.html { render :new } # ここでのNewはどこに飛ぶのか？ Viewsのcomments内にNewファイルがない
       end
     end
   end

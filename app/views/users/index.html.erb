@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>ユーザー一覧</h2>
+  <% @users.each do |user| %>
+      <div class="container-child col-md-2 col-sm-3 col-xs-12 ">
+        <!-- <%= profile_img(user) %> -->
+        <%= link_to profile_img(user), user_path(user.id) %> <!-- 一覧から詳細ページへのリンク -->
+        <p><%= link_to user.name, user %></p> <!-- dive16課題で追記 -->
+        <%= user.email %>
+        <%= render 'follow_form', user: user %> <!-- ここの意味がわからない -->
+      </div>
+  <% end %>
+</div>
