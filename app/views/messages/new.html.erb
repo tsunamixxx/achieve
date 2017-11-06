@@ -1,0 +1,21 @@
+<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+  <% if @message.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @message.errors.count %>件のエラーがあります。</h2>
+    <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="field">
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+
+    <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+  <div>
+    <%= f.submit "メッセージを送る" %>
+  </div>
+
+<% end %>

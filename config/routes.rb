@@ -25,9 +25,13 @@ Rails.application.routes.draw do
 
   resources :poems, only: [:index, :show]
 
-  resources :users, only: [:index, :show] # dive16で:showを追記
+  resources :users, only: [:index, :show] # dive16課題で:showを追記
 
   resources :relationships, only: [:create, :destroy]
+
+  resources :conversations do
+    resources :messages
+  end
 
   root 'top#index'
 

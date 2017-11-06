@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
 
   # showアククションを定義します。入力フォームと一覧を表示するためインスタンスを2つ生成します。
   def show
-    @comment = @blog.comments.build #Commentsのレコードのblog_idに値がセットされる
+    @comment = @blog.comments.build #Commentsモデルのblog_idレコードに値がセットされ、@commentにインスタンス変数として代入される
     @comments = @blog.comments
   end
 

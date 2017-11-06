@@ -4,6 +4,7 @@
     <p><%= profile_img(@user) %></p>
     <p>ユーザー名：<%= @user.name %></p>
     <p>メールアドレス：<%= @user.email %></p>
+    <p><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post'%></p>
   </div>
 
   <h2>フォロー一覧</h2>
