@@ -13,12 +13,20 @@ class User < ActiveRecord::Base
   # UserモデルがCommentモデル内にあるuser_idを外部キーとしてCommentモデルと関連づいている
   has_many :comments, dependent: :destroy
 
+  # ----- ★試しに追加してみた ここから★ -----
+  has_many :messages, dependent: :destroy
+
+  has_many :senders, dependent: :destroy
+  has_many :recipients, dependent: :destroy
+  # ----- ★試しに追加してみた ここまで★ -----
 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
 
   has_many :followed_users, through: :relationships, source: :followed
   has_many :followers, through: :reverse_relationships, source: :follower
+
+
 
 
   mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記

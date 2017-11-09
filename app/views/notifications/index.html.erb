@@ -1,0 +1,15 @@
+<h2>お知らせ</h2>
+<ul>
+  <% @notifications.each do |notification| %>
+  <hr>
+    <li class="alert alert-warning">
+      <span style="color:red;"><% if notification.read == false %>未読<% end %></span>
+      <!-- <span><%= notification.read %></span> DIVE19の課題で上記に書き換え -->
+      <p>
+        <%= notification.comment.user.try(:name) %>さんが
+        あなたのブログ（<%= link_to "#{notification.comment.blog.title}", blog_path(notification.comment.blog, notification_id: notification.id) %>）にコメントしました。
+      </p>
+      <p><%= notification.created_at %></p>
+    </li>
+  <% end %>
+</ul>

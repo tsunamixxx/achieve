@@ -1,7 +1,8 @@
 <div class="container">
   <h2>ユーザー一覧</h2>
   <% @users.each do |user| %>
-      <div class="container-child col-md-2 col-sm-3 col-xs-12 ">
+    <div class="container-child col-md-2 col-sm-3 col-xs-12 ">
+      <% if user.id != current_user.id %>
         <!-- <%= profile_img(user) %> -->
         <%= link_to profile_img(user), user_path(user.id) %> <!-- 一覧から詳細ページへのリンク -->
         <p><%= link_to user.name, user %></p> <!-- dive16課題で追記 -->
@@ -10,6 +11,7 @@
         <!-- render 'follow_form', user: user -->
         <!-- 上の記述の意味がわからない（コメントを残すために%=を省略した）。dive19で下記に書き換える。 -->
         <%= render partial: 'follow_form', locals: { user: user } if signed_in? %>
-      </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
