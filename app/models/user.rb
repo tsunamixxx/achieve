@@ -14,10 +14,10 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   # ----- ★試しに追加してみた ここから★ -----
-  has_many :messages, dependent: :destroy
+  #has_many :messages, dependent: :destroy
 
-  has_many :senders, dependent: :destroy
-  has_many :recipients, dependent: :destroy
+  # has_many :senders, foreign_key: "sender_id", class_name: "Message", dependent: :destroy
+  # has_many :recipients, foreign_key: "recipients_id", class_name: "Message", dependent: :destroy
   # ----- ★試しに追加してみた ここまで★ -----
 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

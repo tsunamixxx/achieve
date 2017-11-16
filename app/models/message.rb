@@ -1,6 +1,7 @@
 class Message < ActiveRecord::Base
 
-  validates :body, presence: true
+  # DIVE02_Rails基礎2のバリデーションの命令をそのままコピペしたためbodyが重複し、コメントのエラー表示がおかしくなっていた。
+  # validates :body, presence: true
 
   belongs_to :conversation
   belongs_to :user

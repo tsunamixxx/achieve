@@ -20,6 +20,7 @@
     <% end %>
   <% end %>
 </div>
+<div style="margin-bottom:100px;">
 <!-- URLの指定によってform_for引数の書き方が決まる。入れ子になってるから@conversation, @messageを入れる。
 ルーティングにあわせる。（）はあってもなくても良い -->
 <%= form_for ([@conversation, @message]), html: {class: "ui reply form"} do |f| %>
@@ -32,3 +33,4 @@
   </div>
 
 <% end %>
+</div>
